@@ -2,17 +2,17 @@ import React from 'react';
 import { View, Text  } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons"; 
 
-const StoreDetail = () => {
+const StoreDetail = ({rating, name, title}) => {
     return (
         <View style={styles.containerStyle}>
             <View style={styles.nameTypeStyle}>
-                <Text style={styles.companyNameStyle}>McDonald</Text>
-                <Text style={styles.typeStyle}> Italian</Text>
+                <Text style={styles.companyNameStyle}>{name}</Text>
+                <Text style={styles.typeStyle}> {title}</Text>
             </View>
             <View style={styles.ratingContainerStyle}>
-                <Text style={styles.ratingTextStyle}>2.5</Text>
+                <Text style={styles.ratingTextStyle}>{rating}</Text>
                 <View style={{ display:'flex', flexDirection:'row',alignItems:'center', flexGrow: 1}}>
-                    {renderStars(2.5)}
+                    {renderStars(rating)}
                 </View>
             </View>
         </View>
@@ -81,7 +81,9 @@ const styles = {
         backgroundColor:'#fff',
         display:'flex',
         flexDirection:'column',
-        width:'100%'
+        flex: 1,
+        width:'100%',
+        paddingBottom: 30
     },
     nameTypeStyle:{
         display:'flex',
@@ -90,16 +92,20 @@ const styles = {
         justifyContent:'space-between'
     },
     companyNameStyle:{
+        flex:2,
         padding:10,
         fontSize:18,
         fontWeight:'600',
-        color:'#000'
+        color:'#000',
+        flexWrap:'wrap'
     },
     typeStyle:{
+        flex:1,
         padding:10,
         fontSize:16,
         fontWeight:'400',
-        color:'#000'
+        color:'#000',
+        textAlign:'right'
     },
     ratingContainerStyle:{
         display:'flex',
