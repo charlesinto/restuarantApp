@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { View, Image, Text } from "react-native";
 import { Icon } from 'react-native-vector-icons/FontAwesome';
+import { CardImage, StoreDetail } from "../Common";
 
 class Card extends Component {
     render() {
         return (
-            <View style={{margin:10 , display:'flex', flexDirection:'column'}}>
+            <View style={{margin:10 , display:'flex', flexDirection:'column',}}>
                 <View style={styles.containerStyle}>
-                    <Text>nnii</Text>
+                    <CardImage />
+                    <StoreDetail />
                 </View>
             </View>
         )
@@ -22,7 +24,7 @@ const styles = {
         display:'flex',
         flexDirection:'column',
         backgroundColor:'#fff',
-        borderRadius: 2,
+        borderRadius: 4,
         borderColor: '#fff',
         borderBottomWidth: 0,
         shadowColor: 'rgba(0,0,0,0.16)',
