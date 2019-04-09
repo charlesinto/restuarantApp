@@ -2,19 +2,19 @@ import React from 'react';
 import { View, Text, Image, ImageBackground} from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons"; 
 
-const CardImage = ({url}) => {
+const CardImage = ({image_url, distance}) => {
     return (
         <View style={styles.containerStyle}>
             <View style={{width:'100%', height:'100%'}}>
                 <Image 
-                    source={{uri:'https://res.cloudinary.com/dnevwxinm/image/upload/v1554383530/waves/assets/1554383529721.jpg'}}
+                    source={{uri:image_url}}
                     style={{flex:1 , width: null, height: null}}
                     resizeMode={'cover'}
 
                 />
             </View>
             <View style={styles.distanceStyle}>
-                <Text style={styles.distanceText}>16Km</Text>
+                <Text style={styles.distanceText}>{(distance /1000).toFixed(2)} Km</Text>
             </View>
             <View style={styles.likeContainerStyle}>
                 <Icon 
@@ -29,7 +29,7 @@ const CardImage = ({url}) => {
 
 const styles = {
     containerStyle:{
-        flexGrow: 1,
+        flex: 4,
         display:'flex',
         position:'relative'
     },

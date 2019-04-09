@@ -6,10 +6,11 @@ import { CardImage, StoreDetail } from "../Common";
 class Card extends Component {
     render() {
         return (
-            <View style={{margin:10 , display:'flex', flexDirection:'column',}}>
+            <View style={{margin:10, marginBottom: 0, display:'flex', flexDirection:'column',}}>
                 <View style={styles.containerStyle}>
-                    <CardImage />
-                    <StoreDetail />
+                    <CardImage image_url={this.props.business.image_url} distance={this.props.business.distance} />
+                    <StoreDetail name={this.props.business.name} 
+                        title={this.props.business.categories[0].title} rating={this.props.business.rating} />
                 </View>
             </View>
         )
@@ -19,7 +20,7 @@ class Card extends Component {
 const styles = {
     containerStyle:{
         boxShadow: '0 3 6 rgba(0,0,0,0.16), 0 3 6 rgba(0,0,0,0.23)',
-        height: 300,
+        height: 400,
         width:'100%',
         display:'flex',
         flexDirection:'column',
