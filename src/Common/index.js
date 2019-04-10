@@ -5,3 +5,5 @@ export * from './Header';
 export * from './Card';
 export * from './StoreDetail';
 export * from './CardImage';
+export * from './Rating';
+export * from './Map';

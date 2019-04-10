@@ -11,6 +11,7 @@
     "dotenv": "^7.0.0",
     "react": "^16.8.3",
     "react-native": "0.59.3",
+    "react-native-maps": "https://github.com/react-native-community/react-native-maps.git#c102c36d895cbef8b6a8deefd4c58fb0dc17638e",
     "react-native-router-flux": "^4.0.6",
     "react-native-vector-icons": "^6.4.2",
     "react-promise": "^2.1.0",

@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet } from "react-native";
 import { Scene, Router, Actions } from "react-native-router-flux";
 import Home from "../components/Home";
+import Store from '../components/Store';
 
 const Routes = () => {
     return (
@@ -10,9 +11,9 @@ const Routes = () => {
                 <Scene key = "main"  >
                     <Scene key="home" component={Home} title="timeTicker" hideNavBar />
                 </Scene>
-                {/* <Scene key="page">
-
-                </Scene> */}
+                <Scene key="page">
+                    <Scene key="storeEdit" component={Store} title="timeTicker" hideNavBar />
+                </Scene>
                 
             </Scene>
         </Router>
