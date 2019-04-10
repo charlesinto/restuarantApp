@@ -7,7 +7,8 @@ export default (state = INITIAL_STATE, actions) => {
         case GET_SHOP_BY_ID:
             console.log('shop', actions.payload)
             return {...state,
-                storeDetail: actions.payload.detail
+                storeDetail: actions.payload.detail,
+                distance: actions.payload.distance
             }
         default:
             return {...state}

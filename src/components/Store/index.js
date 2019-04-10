@@ -35,7 +35,7 @@ class index extends Component {
                                     thumbImage={this.props.storeDetail.photos[0]}
                                     onPress={() => this.handleShopOrder(this.props.storeDetail.id)}
                                     name={this.props.storeDetail.name}
-                                    distance={this.props.storeDetail.distance}
+                                    distance={this.props.distance}
                                     title={this.props.storeDetail.categories[0].title}
                                 />
                                 <Contact />
@@ -68,9 +68,10 @@ class index extends Component {
 
 const mapStateToProps = state => {
     console.log(state.shop)
-    const {storeDetail} = state.shop
+    const {storeDetail, distance} = state.shop;
     return {
-        storeDetail
+        storeDetail,
+        distance
     }
 }
 

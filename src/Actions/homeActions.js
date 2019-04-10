@@ -42,7 +42,7 @@ const fetchMoreData = (state = [], skipTo = 0, limit = 5) => {
     }
 }
 
-const goToShop = (id) => {
+const goToShop = (id, distance) => {
     return (dispatch) => {
         axioService.request({
             url:`/businesses/${id}`,
@@ -51,7 +51,7 @@ const goToShop = (id) => {
         .then(response => {
             dispatch({
                 type:GET_SHOP_BY_ID,
-                payload:{ detail: response.data, status: response.status }
+                payload:{ detail: response.data, status: response.status, distance }
             })
             
             Actions.page({type:'reset'})
