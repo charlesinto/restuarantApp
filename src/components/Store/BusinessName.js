@@ -19,17 +19,20 @@ class BusinessName extends Component {
                     </View>
                     <View style={{display:'flex', flexDirection:'row'}}>
                         <Text style={{color:'#ffa726'}}>{this.props.rating}</Text>
-                        <View>
+                        <View style={{display:'flex', flexDirection:'row'}}>
                             <Rating 
                                 rating={this.props.rating}
                             />
+                            <View style={{display:'flex', paddingLeft:5}}>
+                                <Text style={{fontSize:14, color:'#000'}}>{this.props.title}</Text>
+                            </View>
                         </View>
                     </View>
                 </View>
                 <View style={{display:'flex', justifyContent:'center', paddingRight: 10}}>
                     <TouchableOpacity onPress={() => this.props.onPress()}>
                         <View style={styles.buttonContainer}>
-                            <Text style={styles.buttonStyle}>Book</Text>
+                            <Text style={styles.buttonStyle}>{this.props.distance}</Text>
                         </View>
 
                     </TouchableOpacity>
