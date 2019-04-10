@@ -4,6 +4,7 @@ import { Rating } from "../../Common";
 
 class BusinessName extends Component {
     render() {
+        console.log(this.props)
         return (
             <View  style={styles.containerStyle}>
                 <View style={styles.thumbImage}>
@@ -19,7 +20,7 @@ class BusinessName extends Component {
                     </View>
                     <View style={{display:'flex', flexDirection:'row'}}>
                         <Text style={{color:'#ffa726'}}>{this.props.rating}</Text>
-                        <View style={{display:'flex', flexDirection:'row'}}>
+                        <View style={{display:'flex', flexDirection:'column'}}>
                             <Rating 
                                 rating={this.props.rating}
                             />
@@ -32,7 +33,7 @@ class BusinessName extends Component {
                 <View style={{display:'flex', justifyContent:'center', paddingRight: 10}}>
                     <TouchableOpacity onPress={() => this.props.onPress()}>
                         <View style={styles.buttonContainer}>
-                            <Text style={styles.buttonStyle}>{this.props.distance}</Text>
+                            <Text style={styles.buttonStyle}>{ (this.props.distance/1000).toFixed(2)} Km</Text>
                         </View>
 
                     </TouchableOpacity>
@@ -84,10 +85,12 @@ const styles = {
         backgroundColor:'#ffa726',
         borderWidth:1,
         borderColor:'#ffa726', 
-        width: 70,
         display:'flex', 
         justifyContent:'center',
-         height:30, 
+        paddingTop:10,
+        paddingBottom: 10,
+        paddingLeft:7,
+        paddingRight: 5,
          color:'#fff', 
          alignItems:'center'
     }

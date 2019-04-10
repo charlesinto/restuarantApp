@@ -5,7 +5,7 @@ import promiseMiddleWare from "redux-promise";
 import ReduxThunk from "redux-thunk";
 import Reducers from "../Reducers";
 import Router from "../Routes";
-import { StatusBar} from 'react-native';
+import { StatusBar, View} from 'react-native';
 
 const createStoreWithMiddleWare = applyMiddleware(promiseMiddleWare, ReduxThunk)(createStore)
 
@@ -16,8 +16,10 @@ class App extends Component {
     }
     render() {
         return (
-            <Provider store={createStoreWithMiddleWare(Reducers)}>
-                <Router />
+            <Provider store={createStoreWithMiddleWare(Reducers)} >
+                <View style={{display:'flex', flex:1}}>
+                    <Router />
+                </View>
             </Provider>
         );
     }
