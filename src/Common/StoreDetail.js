@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text  } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons"; 
+import { Rating } from "../Common";
 
 const StoreDetail = ({rating, name, title}) => {
     return (
@@ -12,70 +13,14 @@ const StoreDetail = ({rating, name, title}) => {
             <View style={styles.ratingContainerStyle}>
                 <Text style={styles.ratingTextStyle}>{rating}</Text>
                 <View style={{ display:'flex', flexDirection:'row',alignItems:'center', flexGrow: 1}}>
-                    {renderStars(rating)}
+                    <Rating rating={rating} />
                 </View>
             </View>
         </View>
     );
 };
 
-const renderStars = rating => {
-    const maxRating = 5;
-    let difference = 0
-    const stars = [];
-    if(rating === maxRating){
-        for(let i = 0; i < maxRating; i++){
-            stars.push(
-                <Icon 
-                    name="ios-star"
-                    size={24}
-                    color={'#ffa726'}
-                />
-            )
-        }
-    }else{
-        for(let i = 0; i < Math.floor(rating); i++){
-            stars.push(
-                <Icon 
-                    name="ios-star"
-                    size={24}
-                    color={'#ffa726'}
-                />
-            )
-        }
-        const difference = maxRating - rating;
-        if(isFloat(difference)){
-            stars.push(
-                <Icon 
-                    name="ios-star-half"
-                    size={24}
-                    color={'#ffa726'}
-                />
-            )
-        }
-        if(difference !== 0){
-            for(let i = 0; i < Math.floor(difference); i++){
-                stars.push(
-                    <Icon 
-                        name="ios-star"
-                        size={24}
-                    />
-                )
-            }
-        }
-    }
-    return renderStarIcon(stars);
-}
-renderStarIcon = stars => (
-    stars.map((star, i) => (
-        <View key={i} style={{marginLeft:5}}>
-            {star}
-        </View>
-    ))
-)
-function isFloat(n){
-    return Number(n) === n && n % 1 !== 0;
-}
+
 const styles = {
     containerStyle:{
         backgroundColor:'#fff',

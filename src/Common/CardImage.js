@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, Image, ImageBackground} from 'react-native';
+import { View, Text, Image, ImageBackground, TouchableOpacity} from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons"; 
 
-const CardImage = ({image_url, distance}) => {
+const CardImage = ({image_url, distance, type, handleOnpress}) => {
     return (
         <View style={styles.containerStyle}>
             <View style={{width:'100%', height:'100%'}}>
@@ -14,7 +14,20 @@ const CardImage = ({image_url, distance}) => {
                 />
             </View>
             <View style={styles.distanceStyle}>
-                <Text style={styles.distanceText}>{(distance /1000).toFixed(2)} Km</Text>
+               {
+
+                   type === 'Home' ?  <Text style={styles.distanceText}>{(distance /1000).toFixed(2)} Km</Text>
+                   :
+                   <TouchableOpacity onPress={() => handleOnpress()}>
+                        <View style={styles.distanceText}>
+                            <Icon 
+                                    name="ios-arrow-back"
+                                    size={24}
+                                    color={'#fff'}
+                            />
+                        </View>
+                    </TouchableOpacity>
+               } 
             </View>
             <View style={styles.likeContainerStyle}>
                 <Icon 

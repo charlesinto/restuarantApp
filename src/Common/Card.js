@@ -8,7 +8,8 @@ class Card extends Component {
         return (
             <View style={{margin:10, marginBottom: 0, display:'flex', flexDirection:'column',}}>
                 <View style={styles.containerStyle}>
-                    <CardImage image_url={this.props.business.image_url} distance={this.props.business.distance} />
+                    <CardImage image_url={this.props.business.image_url}
+                     distance={this.props.business.distance} type={this.props.type} />
                     <StoreDetail name={this.props.business.name} 
                         title={this.props.business.categories[0].title} rating={this.props.business.rating} />
                 </View>

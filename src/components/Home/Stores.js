@@ -19,11 +19,12 @@ class Stores extends PureComponent {
     }
     handleOnpress(id){
         console.log('id', id)
+        this.props.goToShop(id);
     }
     renderCard({item}){
         return (
                 <TouchableOpacity onPress={() => this.handleOnpress(item.id)}>
-                    <Card business={item} key={item.id} />
+                    <Card business={item} key={item.id} type="Home" />
                 </TouchableOpacity>
         )
     }

@@ -1,7 +1,8 @@
 import { axioService } from "../Service";
 import axios from 'axios';
 import { FETCH_BUSINESS, ERROR_LOADING_BUSINESS,
-     BASE_URL, API_KEY, FETCH_MORE_DATA } from "./types";
+     BASE_URL, API_KEY, FETCH_MORE_DATA, GET_SHOP_BY_ID } from "./types";
+import { Actions } from "react-native-router-flux";
 
 const fetchBusinesses = async () => {
     try{
@@ -35,15 +36,47 @@ const fetchBusinesses = async () => {
 }
 
 const fetchMoreData = (state = [], skipTo = 0, limit = 5) => {
-    console.log('oks s', skipTo + limit)
     return {
         type: FETCH_MORE_DATA,
         payload:{state, skip: skipTo + limit, limit}
     }
 }
 
+const goToShop = (id) => {
+    return (dispatch) => {
+        axioService.request({
+            url:`/businesses/${id}`,
+            method: 'GET'
+        })
+        .then(response => {
+            dispatch({
+                type:GET_SHOP_BY_ID,
+                payload:{ detail: response.data, status: response.status }
+            })
+            
+            Actions.page({type:'reset'})
+        })
+        .catch(error => {
+            dispatch({
+                type: ERROR_LOADING_BUSINESS,
+                payload: { ...error.response.data, status: error.response.status }
+            })
+        })
+    }
+}
+
+const goToHome = () => {
+    Actions.main()
+    return {
+        type:'',
+        payload:{}
+    }
+}
+
 
 export {
     fetchBusinesses,
-    fetchMoreData
+    fetchMoreData,
+    goToShop,
+    goToHome
 }
