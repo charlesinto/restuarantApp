@@ -16,12 +16,12 @@ class index extends Component {
     }
     renderView(){
         return (
-            <View style={{display:'flex',width:'100%', flex:1}}>
+            <View>
                 {
                         Helper.isEmpty(this.props.storeDetail) ? null
                         :
-                        <View style={{display:'flex',flex:1, width:'100%'}}>
-                            <View style={{display:'flex', height:300}}>
+                        <View>
+                            <View style={{ height:300}}>
                                 <CardImage
                                     type="SHOP"
                                     image_url={this.props.storeDetail.image_url}
@@ -29,7 +29,7 @@ class index extends Component {
                                     handleOnpress={() => this.props.goToHome()}
                                 />
                             </View>
-                            <View style={{display:'flex', width:'100%'}}>
+                            <View>
                                 <BusinessName
                                     rating={this.props.storeDetail.rating}
                                     thumbImage={this.props.storeDetail.photos[0]}
@@ -40,7 +40,7 @@ class index extends Component {
                                 />
                                 <Contact />
                                 <UserService />
-                                <View style={{width:'100%', height:400, display:'flex'}}>
+                                <View style={{height:400}}>
                                     <Map 
                                         longitude={this.props.storeDetail.coordinates.longitude}
                                         latitude={this.props.storeDetail.coordinates.latitude}
@@ -55,8 +55,8 @@ class index extends Component {
     render() {
         return (
            <View style={{display:'flex', flex: 1}}>
-                <ScrollView  contentContainerStyle={{display:"flex", flex:1, flexGrow: 1}} style={{display:'flex', flex: 1}}>
-                    <View style={{display:'flex',flex:1, width:'100%'}}>
+                <ScrollView  contentContainerStyle={{flexGrow: 1}} >
+                    <View>
                         {this.renderView()}
                     </View>
                 </ScrollView>

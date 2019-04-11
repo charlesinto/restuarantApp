@@ -30,7 +30,8 @@ const styles = {
         right: 0,
         left:0,
         justifyContent:'flex-end',
-        alignItems:'center'
+        alignItems:'center',
+        height:'100%'
     },
     mapView:{
         position:'absolute',
@@ -41,7 +42,7 @@ const styles = {
         flex: 1, 
         display: 'flex',
          width: '100%', 
-         height:300
+         height:'100%'
     }
 
 }
