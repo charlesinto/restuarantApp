@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, SafeAreaView, ScrollView, Text, Dimensions } from "react-native";
+import { View, SafeAreaView, ScrollView, Text } from "react-native";
 import { CardImage } from "../../Common";
 import { connect } from "react-redux";
 import * as actions from "../../Actions";
@@ -53,15 +53,14 @@ class index extends Component {
         )
     }
     render() {
-        const screenHeight = Dimensions.get('window').height;
         return (
-           <SafeAreaView style={{display:'flex', flex: 1, height:screenHeight}}>
+           <View style={{display:'flex', flex: 1}}>
                 <ScrollView  contentContainerStyle={{display:"flex", flex:1, flexGrow: 1}} style={{display:'flex', flex: 1}}>
                     <View style={{display:'flex',flex:1, width:'100%'}}>
                         {this.renderView()}
                     </View>
                 </ScrollView>
-           </SafeAreaView>
+           </View>
         );
     }
 }
